@@ -15,7 +15,13 @@ code {
 } */
 
 * {
-  font-family: "Rubik", sans-serif !important
+  font-family: "Rubik", sans-serif !important;
+  text-decoration: none !important;
+}
+
+.no-link {
+
+  color: #212529;
 }
 
 .quantity {
