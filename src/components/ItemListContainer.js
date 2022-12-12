@@ -1,6 +1,7 @@
 import ProductCard from '../components/ProductCard';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ItemListContainer = ({greetingName}) => {
 // const [categoria, setCategoria] = useState(useParams())
@@ -49,7 +50,16 @@ const [productos, setProductos] = useState([{
     category: "almacen",
   }]);
     
-      
+useEffect(() => {
+    fetch('http://localhost:3000/data/data.json')
+    .then((response) => response.json())
+    .then((response) => {
+        console.log("Respuesta:", response)
+    })
+    // .catch((error) => {
+    //     console.error("Error al consultar API:", error)
+    // })
+}, [])
     
       
     const renderProductos = () => {
