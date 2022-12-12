@@ -50,16 +50,29 @@ const [productos, setProductos] = useState([{
     category: "almacen",
   }]);
     
-useEffect(() => {
-    fetch('http://localhost:3000/data/data.json')
-    .then((response) => response.json())
-    .then((response) => {
-        console.log("Respuesta:", response)
-    })
-    // .catch((error) => {
-    //     console.error("Error al consultar API:", error)
-    // })
-}, [])
+// useEffect(() => {
+//     fetch('http://localhost:3000/src/data/data.json')
+//     .then((response) => response.json())
+//     .then((response) => {
+//         console.log("Respuesta:", response)
+//     })
+//     .catch((error) => {
+//         console.error("Error al consultar API:", error)
+//     })
+// }, [])
+
+fetch('../data/data.json', {
+    method: 'get',
+    mode: 'no-cors',
+    headers: {
+       'Content-Type': "application/json",
+       'Access-Control-Allow-Origin' : '*',
+       'Access-Control-Allow-Credentials' : true,
+    },})
+.then((response) => response.json())
+.then((data) => {
+    console.log("Respuesta:", data)
+})
     
       
     const renderProductos = () => {

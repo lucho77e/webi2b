@@ -10,7 +10,7 @@ const ProductCard = ({title, description, price, link}) => {
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{description}</p>
                     <p className="card-text"><small className="text-muted">${price}</small></p>
-                    <a href="#" className="btn btn-primary">Comprar</a>
+                    <a className="btn btn-primary">Comprar</a>
                 </div>
             </div>  </Link>       
         </div> 
