@@ -11,11 +11,41 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 
+import { collection, doc, getDoc, getFirestore, getDocs } from "@firebase/firestore";
 
 
 function App() {
 
-  
+
+
+
+// const [productos, setProductos] = useState([])
+// useEffect(() => {
+//   const db = getFirestore();
+//   const productsCollection = collection(db, "productos");
+//   getDocs(productsCollection).then((snapshot) => {
+//     setProductos(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data })))
+//   })
+// }, [])
+
+// useEffect(() => {
+//   const db = getFirestore();
+//   const productsCollection = collection(db, "productos");
+//   getDocs(productsCollection).then((snapshot) => {
+//     const products = [];
+//     snapshot?.docs?.forEach((item) => {
+//       products.push({
+//         id: item.id,
+//         ...item.data()
+//       })
+//     })
+//     setProductos(products)    
+//   })
+// }, [])
+
+// console.log(productos)
+
+
   return (
     <BrowserRouter>
       <div>
