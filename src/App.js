@@ -5,59 +5,42 @@ import CartWidget from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
 
+
 import { Link, NavLink } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 
-import { collection, doc, getDoc, getFirestore, getDocs } from "@firebase/firestore";
-
+import { collection, doc, getDoc, getFirestore, getDocs, docs} from "@firebase/firestore";
+import Provider from './context/Provider';
+import { useContext } from 'react';
+import Context from './context/Context';
+import Checkout from './components/Checkout';
 
 function App() {
 
 
 
 
-// const [productos, setProductos] = useState([])
-// useEffect(() => {
-//   const db = getFirestore();
-//   const productsCollection = collection(db, "productos");
-//   getDocs(productsCollection).then((snapshot) => {
-//     setProductos(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data })))
-//   })
-// }, [])
-
-// useEffect(() => {
-//   const db = getFirestore();
-//   const productsCollection = collection(db, "productos");
-//   getDocs(productsCollection).then((snapshot) => {
-//     const products = [];
-//     snapshot?.docs?.forEach((item) => {
-//       products.push({
-//         id: item.id,
-//         ...item.data()
-//       })
-//     })
-//     setProductos(products)    
-//   })
-// }, [])
-
-// console.log(productos)
-
 
   return (
-    <BrowserRouter>
-      <div>
-        <NavBar />
+    
+  <Provider>
+      <BrowserRouter>
+        <div>
+          <NavBar />
+        </div>
+        <Routes>
+          <Route exact path="/" element={ <ItemListContainer greetingName="Luciano" category="almacen" /> } />
+          <Route exact path="/productos/:productId" element={ <ItemDetailContainer /> } />
+          <Route exact path="/checkout" element={ <Checkout /> } />
+          <Route exact path="/:category" element={ <ItemListContainer greetingName="Luciano"/> } />
+        </Routes>
+      </BrowserRouter>
 
-      </div>
-      <Routes>
-        <Route exact path="/" element={ <ItemListContainer greetingName="Luciano" category="almacen" /> } />
-        <Route exact path="/productos/:productId" element={ <ItemDetailContainer /> } />
-        <Route exact path="/:category" element={ <ItemListContainer greetingName="Luciano"/> } />
-      </Routes>
-    </BrowserRouter>
+  </Provider>
+
   );
 }
 

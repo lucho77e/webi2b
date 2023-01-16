@@ -1,10 +1,25 @@
 import CartWidget from "./CartWidget";
 import Logo from "../images/logowebi2b.png"
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import Context from "../context/Context";
 
 const NavBar = () => {
+
+    
+    let quantity = 0
+    const contextData = useContext(Context)
+
+   
+  
+    contextData.carrito.map((el) => {
+            if (el.quantity != 0) {
+                quantity = quantity + parseInt(el.quantity)  
+            }
+            console.log("la cantidad total es" + quantity)
+        }
+    )
 
     return (
         <div>            
@@ -32,7 +47,7 @@ const NavBar = () => {
                             </li>
                         </ul>   
                         <div>
-                            <CartWidget />
+                        <Link to={"/checkout"}><CartWidget quantity= { quantity } /></Link>
                         </div>
                     </div>
                 </div>

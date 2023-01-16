@@ -9,7 +9,6 @@ const ItemListContainer = ({greetingName}) => {
 const categoria = useParams()
 
 
-
 // const [productos, setProductos] = useState([{
 //     id: 0,
 //     name: "Coca",
@@ -98,11 +97,11 @@ useEffect(() => {
     return productos?.map ((item) => {
         if(categoria.category == undefined) {
             return(
-                <ProductCard title={item.name} description={item.description} price= {item.price} link={"/productos/" + item.id} />
+                <ProductCard title={item.name} description={item.description} price= {item.price} link={"/productos/" + item.id} productId={item.id}/>
             ) 
         } else if (item.category == categoria.category) {
             return(
-                <ProductCard title={item.name} description={item.description} price= {item.price} link={"/productos/" + item.id} />
+                <ProductCard title={item.name} description={item.description} price= {item.price} link={"/productos/" + item.id} productId={item.id}/>
             )                
         }
     })

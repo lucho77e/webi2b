@@ -1,6 +1,11 @@
 import imgCarrito from "../images/ic_cart.svg"
+import Context from "../context/Context";
+import { useContext } from "react";
+import { useEffect } from "react";
 
-const CartWidget = () => {
+const CartWidget = ({quantity}) => {
+
+
     return (
         <div>
             <div>
@@ -9,7 +14,7 @@ const CartWidget = () => {
                 </a>
             </div>
             <div className="quantity">
-                    <p>11</p>
+                    <p> {quantity} </p>
             </div>
         </div>
     );

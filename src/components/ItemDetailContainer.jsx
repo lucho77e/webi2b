@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, doc, getDoc, getFirestore, getDocs } from "@firebase/firestore";
-import AddButton from './AddButton';
+import AddItemButton from './AddItemButton';
+import Context from "../context/Context";
+import { useContext } from "react";
 
 const ItemDetailContainer = () => {
     const { productId } = useParams();
+    const contextData = useContext(Context) 
 
     // const [productos, setProductos] = useState([{
     //     id: 0,
@@ -76,7 +79,7 @@ const ItemDetailContainer = () => {
               <h1>{producto.name}</h1>
               <h6>{producto.description}</h6>
               <p>$ {producto.price}</p>
-              <AddButton productId={ productId } />
+              <AddItemButton productId={ productId } text="Agregar al carrito"/>
               
             </div>
             <div className='col-3'>
