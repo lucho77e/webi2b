@@ -17,7 +17,7 @@ const NavBar = () => {
             if (el.quantity != 0) {
                 quantity = quantity + parseInt(el.quantity)  
             }
-            console.log("la cantidad total es" + quantity)
+            // console.log("la cantidad total es" + quantity)
         }
     )
 

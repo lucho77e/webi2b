@@ -9,6 +9,7 @@ const Context = createContext({
     onUpdateCartItem: () => {},
     onDeleteCartItem: () => {},
     onGetIdQuantity: () => {},
+    onCreateOrder: () => {},
 
 })
 

@@ -46,6 +46,17 @@ const Provider = ({ children }) => {
         })
     }
 
+
+    const CreateOrder = (cart) => {
+      const db = getFirestore(); 
+      let newId = parseInt(Math.random() * 1000000)
+      const orderDoc = doc(db, "ordenes", newId.toString());
+      setDoc(orderDoc, {
+        cart: cart
+      } )
+      alert("La orden " + newId + " se creó con éxito")
+  }
+
     const UpdateCartItem = (productId, quantity) => {
         const db = getFirestore();
         const orderDoc = doc(db, "carrito", productId);
@@ -71,6 +82,7 @@ const Provider = ({ children }) => {
             onUpdateCartItem: UpdateCartItem,
             onDeleteCartItem: DeleteCartItem,
             onGetIdQuantity: getIdQuantity,
+            onCreateOrder: CreateOrder,
         }}>
             {children}
         </Context.Provider>

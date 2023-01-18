@@ -13,7 +13,7 @@ const AddItemButton = ({productId, text}) => {
 
     const contextData = useContext(Context) 
     const [carrito, setCarrito] = useState(contextData.carrito)
-    console.log(carrito)
+    // console.log(carrito)
 
     // useEffect(() => {
     //   const db = getFirestore();
@@ -82,7 +82,6 @@ const AddItemButton = ({productId, text}) => {
                 className='btn btn-primary'> {text} </button>
             );
         } else if (cantidadAux > 0) {
-            console.log(cantidadAux)
             return (    
                 <QuantityPicker min={0} value={cantidadAux} onChange={(value) => {
 
